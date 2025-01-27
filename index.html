@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metaverse Fact</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        p:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metaverse Fact</h1>
+        <p id="fact"></p>
+        <button id="nextFact">Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "The metaverse is a collective virtual shared space created by the convergence of virtually enhanced physical reality and physically persistent virtual reality.",
+            "The term 'metaverse' was coined by author Neal Stephenson in his 1992 science fiction novel 'Snow Crash'.",
+            "The metaverse encompasses a wide range of technologies, including virtual reality (VR), augmented reality (AR), and blockchain.",
+            "Users in the metaverse can interact with each other and the environment in real-time, often through avatars.",
+            "The metaverse has applications in various sectors, including gaming, education, social interaction, and commerce.",
+            "Major tech companies like Facebook (now Meta), Microsoft, and Google are investing heavily in metaverse development.",
+            "The metaverse aims to create immersive experiences that blur the lines between the digital and physical worlds.",
+            "Digital assets, such as virtual real estate and NFTs (non-fungible tokens), play a significant role in the economy of the metaverse.",
+            "Interoperability between different virtual environments is a key goal for the future of the metaverse.",
+            "The metaverse is still in its early stages, with ongoing developments in technology and user adoption."
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact() {
+            const factElement = document.getElementById('fact');
+            factElement.innerText = facts[currentFactIndex];
+            factElement.classList.add('fade-in');
+            setTimeout(() => {
+                factElement.classList.remove('fade-in');
+            }, 300);
+        }
+
+        document.getElementById('nextFact').addEventListener('click', () => {
+            currentFactIndex = (currentFactIndex + 1) % facts.length;
+            displayFact();
+        });
+
+        // Display the first fact on page load
+        displayFact();
+    </script>
+</body>
+</html>

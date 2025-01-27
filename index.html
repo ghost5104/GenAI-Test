@@ -5,128 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metaverse Fact</title>
     <style>
+        /* Basic styling for the body */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: #ffffff;
+            background: linear-gradient(135deg, #1a1a2e, #16213e); /* Gradient background */
+            color: #ffffff; /* Text color */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            position: relative;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Hide overflow */
+            position: relative; /* Position relative for absolute children */
         }
 
+        /* Container for the content */
         .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s ease-in-out;
-            position: relative;
-            z-index: 1;
+            text-align: center; /* Center text */
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Blur effect */
+            padding: 30px; /* Padding around content */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+            position: relative; /* Position relative for z-index */
+            z-index: 1; /* Ensure it is above background */
         }
 
+        /* Styling for the heading */
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            font-size: 2.5rem; /* Font size */
+            margin-bottom: 20px; /* Space below heading */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Shadow for text */
         }
 
+        /* Styling for the paragraph */
         p {
-            font-size: 1.2rem;
-            margin: 20px 0;
-            transition: transform 0.3s ease;
+            font-size: 1.2rem; /* Font size */
+            margin: 20px 0; /* Space above and below */
+            transition: transform 0.3s ease; /* Transition for scaling */
+            opacity: 1; /* Initial opacity */
+            transition: opacity 0.5s ease; /* Transition for opacity */
         }
 
+        /* Class for fading out the paragraph */
+        p.fade-out {
+            opacity: 0; /* Set opacity to 0 for fade-out */
+        }
+
+        /* Hover effect for paragraph */
         p:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Scale up on hover */
         }
 
+        /* Styling for the button */
         button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            margin-top: 20px; /* Space above button */
+            padding: 15px 30px; /* Padding inside button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient background */
+            color: white; /* Text color */
+            font-size: 1rem; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background 0.3s ease, transform 0.3s ease; /* Transition effects */
         }
 
+        /* Hover effect for button */
         button:hover {
-            background: linear-gradient(90deg, #0072ff, #00c6ff);
-            transform: scale(1.1);
+            background: linear-gradient(90deg, #0072ff, #00c6ff); /* Change gradient on hover */
+            transform: scale(1.1); /* Scale up on hover */
         }
 
-        button:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.5s ease;
-            z-index: 0;
-        }
-
-        button:hover:after {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
+        /* Keyframes for fade-in animation */
         @keyframes fadeIn {
             from {
-                opacity: 0;
-                transform: translateY(-20px);
+                opacity: 0; /* Start invisible */
+                transform: translateY(-20px); /* Move up */
             }
             to {
-                opacity: 1;
-                transform: translateY(0);
+                opacity: 1; /* Fully visible */
+                transform: translateY(0); /* Move to original position */
             }
         }
 
-        /* Background Animation */
+        /* Background animation styling */
         .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
+            position: absolute; /* Position absolute to cover the whole screen */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: hidden; /* Hide overflow */
+            z-index: 0; /* Behind the container */
         }
 
+        /* Styling for bubbles */
         .bubble {
-            position: absolute;
-            bottom: -150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: rise 10s infinite;
-            opacity: 0.5;
+            position: absolute; /* Position absolute for floating effect */
+            bottom: -150px; /* Start below the viewport */
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            border-radius: 50%; /* Circular shape */
+            animation: rise 10s infinite; /* Rise animation */
+            opacity: 0.5; /* Initial opacity */
         }
 
+        /* Keyframes for bubble rising animation */
         @keyframes rise {
             0% {
-                transform: translateY(0);
-                opacity: 0.5;
+                transform: translateY(0); /* Start at original position */
+                opacity: 0.5; /* Initial opacity */
             }
             100% {
-                transform: translateY(-100vh);
-                opacity: 0;
+                transform: translateY(-100vh); /* Move up out of view */
+                opacity: 0; /* Fade out */
             }
+        }
+
+        /* Styling for score display */
+        .score {
+            font-size: 1.2rem; /* Font size */
+            margin-top: 10px; /* Space above score */
         }
     </style>
 </head>
 <body>
+    <!-- Background with animated bubbles -->
     <div class="background">
         <div class="bubble" style="left: 10%; width: 50px; height: 50px; animation-duration: 8s;"></div>
         <div class="bubble" style="left: 30%; width: 70px; height: 70px; animation-duration: 12s;"></div>
@@ -134,12 +138,20 @@
         <div class="bubble" style="left: 70%; width: 60px; height: 60px; animation-duration: 9s;"></div>
         <div class="bubble" style="left: 90%; width: 80px; height: 80px; animation-duration: 11s;"></div>
     </div>
+    
+    <!-- Main content container -->
     <div class="container">
-        <h1>Metaverse Fact</h1>
-        <p id="fact"></p>
-        <button id="nextFact">Next Fact</button>
+        <h1>Metaverse Fact</h1> <!-- Title -->
+        <p id="fact"></p> <!-- Placeholder for the fact -->
+        <button id="nextFact">Next Fact</button> <!-- Button to get the next fact -->
+        <div class="score" id="score">Facts Viewed: 0</div> <!-- Score display -->
     </div>
+    
+    <!-- Audio element for click sound -->
+    <audio id="clickSound" src="click-sound.mp3" preload="auto"></audio>
+    
     <script>
+        // Array of facts about the metaverse
         const facts = [
             "The metaverse is a collective virtual shared space created by the convergence of virtually enhanced physical reality and physically persistent virtual reality.",
             "The term 'metaverse' was coined by author Neal Stephenson in his 1992 science fiction novel 'Snow Crash'.",
@@ -153,20 +165,28 @@
             "The metaverse is still in its early stages, with ongoing developments in technology and user adoption."
         ];
 
-        let currentFactIndex = 0;
+        let currentFactIndex = 0; // Index for the current fact
+        let score = 0; // Score counter for facts viewed
 
+        // Function to display the current fact
         function displayFact() {
             const factElement = document.getElementById('fact');
-            factElement.innerText = facts[currentFactIndex];
-            factElement.classList.add('fade-in');
+            factElement.classList.add('fade-out'); // Add fade-out class
             setTimeout(() => {
-                factElement.classList.remove('fade-in');
-            }, 300);
+                factElement.innerText = facts[currentFactIndex]; // Update fact text
+                factElement.classList.remove('fade-out'); // Remove fade-out class
+            }, 500); // Delay for fade-out effect
         }
 
+        // Event listener for the button click
         document.getElementById('nextFact').addEventListener('click', () => {
-            currentFactIndex = (currentFactIndex + 1) % facts.length;
-            displayFact();
+            const clickSound = document.getElementById('clickSound'); // Get audio element
+            clickSound.play(); // Play click sound
+
+            currentFactIndex = (currentFactIndex + 1) % facts.length; // Update fact index
+            score++; // Increment score
+            document.getElementById('score').innerText = `Facts Viewed: ${score}`; // Update score display
+            displayFact(); // Display the next fact
         });
 
         // Display the first fact on page load
